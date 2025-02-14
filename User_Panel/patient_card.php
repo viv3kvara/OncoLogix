@@ -1,3 +1,31 @@
+<?php
+
+include("../Admin_Panel/db_conn.php");
+$patients = [];
+$cancerType = mysqli_real_escape_string($conn, $_POST['cancer_type']);
+
+$query = "SELECT 
+    p.P_name AS Name,
+    p.age AS Age,
+    p.p_image as Image,
+    c.cancer_name AS CancerType,
+    h.h_name AS Hospital,
+    h.country AS Country
+FROM cases ca
+JOIN patient p ON ca.p_id = p.p_id
+JOIN cancer c ON ca.cancer_type = c.cancer_name
+JOIN hospital h ON ca.h_id = h.h_id
+WHERE c.cancer_name = '$cancerType';";
+
+$result = mysqli_query($conn, $query);
+if ($result) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $patients[] = $row;
+    }
+} else {
+    echo "Error: " . mysqli_error($conn);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,12 +60,12 @@
 <body class="bg-gradient-to-b from-blue-50 to-white flex flex-col items-center min-h-screen pt-20">
 
     <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50 flex justify-between items-center p-5">
-        <a href="./index.php" class="text-3xl font-bold text-blue-900 flex items-center">
+        <a href="./index.php" class="text-3xl font-bold text-blue-900 flex items-center ml-10">
             <span class="text-black">O</span><span class="text-blue-500">L</span>
             <span class="ml-2 text-gray-600">OncoLogix</span>
         </a>
         <button id="menu-toggle" class="md:hidden text-gray-700 focus:outline-none text-2xl">☰</button>
-        <nav id="menu" class="hidden md:flex md:items-center space-x-6 font-bold">
+        <nav id="menu" class="hidden md:flex md:items-center space-x-6 font-bold mr-[50px]">
             <a href="./index.php" class="text-gray-700 hover:text-blue-700">Home</a>
             <a href="./drop-down.php" class="text-gray-700 hover:text-blue-700">Tumor Collections</a>
             <a href="./aboutus.php" class="text-gray-700 hover:text-blue-700">About Us</a>
@@ -55,44 +83,35 @@
     <div class="flex-grow flex flex-col justify-center items-center w-full px-4 md:px-0">
         <h1 class="text-3xl font-bold text-blue-900 text-center mb-8">Patient Records</h1>
         <div class="flex flex-col space-y-6 w-full max-w-4xl">
-            <div class="bg-white shadow-md rounded-lg p-6 card flex flex-col md:flex-row items-center md:justify-between w-full md:w-auto">
-                <img src="./assets/img/Kartik Photo.png" alt="Patient Image" class="w-40 h-40 rounded-lg object-cover mr-6 mb-4 md:mb-0">
-                <div class="flex-1 flex flex-col md:flex-row justify-between items-center w-full">
-                    <div class="text-center md:text-left">
-                        <h2 class="text-xl font-semibold text-blue-900">John Doe</h2>
-                        <p class="text-gray-700 text-lg"><strong>Age:</strong> 45</p>
-                    </div>
-                    <div class="hidden md:block divider"></div>
-                    <div class="text-center md:text-left">
-                        <p class="text-gray-700 text-lg"><strong>Cancer:</strong> Stage II Lung Cancer</p>
-                        <p class="text-gray-700 text-lg"><strong>Hospital:</strong> City Cancer Institute</p>
-                    </div>
-                    <div class="hidden md:block divider"></div>
-                    <div class="text-center md:text-left">
-                        <p class="text-gray-700 text-lg"><strong>Country:</strong> USA</p>
-                    </div>
-                </div>
-                <a href="./patient-details.php" class="bg-blue-700 text-white px-3 py-[8px] rounded-lg text-lg hover:bg-blue-500 transition mt-4 md:mt-0 md:ml-[11px]">View More</a>
-            </div>
-            <div class="bg-white shadow-md rounded-lg p-6 card flex flex-col md:flex-row items-center md:justify-between w-full md:w-auto">
-                <img src="./assets/img/Kartik Photo.png" alt="Patient Image" class="w-40 h-40 rounded-lg object-cover mr-6 mb-4 md:mb-0">
-                <div class="flex-1 flex flex-col md:flex-row justify-between items-center w-full">
-                    <div class="text-center md:text-left">
-                        <h2 class="text-xl font-semibold text-blue-900">John Doe</h2>
-                        <p class="text-gray-700 text-lg"><strong>Age:</strong> 45</p>
-                    </div>
-                    <div class="hidden md:block divider"></div>
-                    <div class="text-center md:text-left">
-                        <p class="text-gray-700 text-lg"><strong>Cancer:</strong> Stage II Lung Cancer</p>
-                        <p class="text-gray-700 text-lg"><strong>Hospital:</strong> City Cancer Institute</p>
-                    </div>
-                    <div class="hidden md:block divider"></div>
-                    <div class="text-center md:text-left">
-                        <p class="text-gray-700 text-lg"><strong>Country:</strong> USA</p>
-                    </div>
-                </div>
-                <a href="./patient-details.php" class="bg-blue-700 text-white px-3 py-[8px] rounded-lg text-lg hover:bg-blue-500 transition mt-4 md:mt-0 md:ml-[11px]">View More</a>
-            </div>
+            <?php if (!empty($patients)): { ?>
+                    <?php foreach ($patients as $patient): ?>
+                        <div class="bg-white shadow-md rounded-lg p-6 card flex flex-col md:flex-row items-center md:justify-between w-full md:w-auto">
+                            <img src="<?= !empty($patient['Image']) ? '../Admin_Panel/uploads/' . htmlspecialchars($patient['Image']) : './assets/img/unkonw.jpg' ?>"
+                                alt="Patient Image"
+                                class="w-40 h-40 rounded-lg object-cover mr-6 mb-4 md:mb-0">
+                            <div class="flex-1 flex flex-col md:flex-row justify-between items-center w-full">
+                                <div class="text-center md:text-left">
+                                    <h2 class="text-xl font-semibold text-blue-900"><?= htmlspecialchars($patient['Name']) ?></h2>
+                                    <p class="text-gray-700 text-lg"><strong>Age:</strong> <?= htmlspecialchars($patient['Age']) ?></p>
+                                </div>
+                                <div class="hidden md:block divider"></div>
+                                <div class="text-center md:text-left">
+                                    <p class="text-gray-700 text-lg"><strong>Cancer:</strong> <?= htmlspecialchars($patient['CancerType']) ?></p>
+                                    <p class="text-gray-700 text-lg"><strong>Hospital:</strong> <?= htmlspecialchars($patient['Hospital']) ?></p>
+                                </div>
+                                <div class="hidden md:block divider"></div>
+                                <div class="text-center md:text-left">
+                                    <p class="text-gray-700 text-lg"><strong>Country:</strong> <?= htmlspecialchars($patient['Country']) ?></p>
+                                </div>
+                            </div>
+                            <a href="./patient-details.php" class="bg-blue-700 text-white px-3 py-[8px] rounded-lg text-lg hover:bg-blue-500 transition mt-4 md:mt-0 md:ml-[11px]">View More</a>
+                        </div>
+                    <?php endforeach; ?>
+                <?php }
+            else: { ?>
+                    <p class="text-gray-700 text-center text-lg">No patient records found for the selected cancer type.</p>
+            <?php }
+            endif; ?>
         </div>
     </div>
 
