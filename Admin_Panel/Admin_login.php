@@ -21,10 +21,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: index.php");
             exit;
         } else {
-            echo "Invalid password!";
+            echo "<script>alert('Invalid password!');</script>";
         }
     } else {
-        echo "Admin not found!";
+        echo "<script>alert('Admin not found!');</script>";
     }
 }
 
