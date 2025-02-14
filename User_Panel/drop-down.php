@@ -10,7 +10,7 @@
 </head>
 
 <body class="bg-gradient-to-b from-blue-50 to-white">
-    <div class="container mx-auto p-6 shadow-md rounded-lg mt-[70px] bg-gradient-to-b from-white to-blue-50">
+    <div class="container mx-auto p-6 shadow-md rounded-lg mt-[70px] bg-gradient-to-b from-white to-blue-50 lg:w-[60vw]">
         <h2 class="text-xl font-semibold text-blue-900 mb-4">Select Cancer Type</h2>
 
         <!-- Dropdown -->

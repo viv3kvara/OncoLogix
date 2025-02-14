@@ -25,7 +25,7 @@
         </nav>
     </header> -->
 
-    <div class="container mx-auto p-6 shadow-md rounded-lg mt-[70px] bg-gradient-to-b from-white to-blue-50">
+    <div class="container mx-auto p-6 shadow-md rounded-lg mt-[70px] bg-gradient-to-b from-white to-blue-50 lg:w-[80vw]">
         <div class="flex flex-wrap md:flex-nowrap gap-6">
             <!-- Patient Details Card -->
             <div class="flex-1 bg-white/70 shadow-lg p-6 rounded-lg border border-gray-200">
