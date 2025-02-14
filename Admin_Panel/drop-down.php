@@ -41,7 +41,7 @@
             </div>
         </div>
     </div>
-    <footer class="text-center py-6 bg-gray-100 mt-[300px] text-gray-700 text-sm md:text-base" id="main-footer">
+    <footer class="text-center py-6 bg-gray-100 mt-[350px] text-gray-700 text-sm md:text-base" id="main-footer">
         © 2025 OncoLogix | Uniting Against Cancers
     </footer>
     <script>
