@@ -1,13 +1,15 @@
 <?php include("./header.php") ?>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>OncoLogix</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-    </head>
-    <body class="bg-gradient-to-b from-[#E3ECF8] to-[#FFFFFF] text-gray-800 flex flex-col min-h-screen">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OncoLogix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-b from-[#E3ECF8] to-[#FFFFFF] text-gray-800 flex flex-col min-h-screen">
 
     <!-- Content -->
     <div class="text-center mt-16 px-6">
@@ -43,12 +45,14 @@
             </div>
         </div>
     </section>
-<script>        
-// Function to toggle mobile menu
-    document.getElementById("menu-toggle").addEventListener("click", function () {
-        document.getElementById("mobile-menu").classList.toggle("hidden");
-    });</script>
+    <!-- <script>
+        // Function to toggle mobile menu
+        document.getElementById("menu-toggle").addEventListener("click", function() {
+            document.getElementById("mobile-menu").classList.toggle("hidden");
+        });
+    </script> -->
 
-<?php include("./footer.php") ?>
+    <?php include("./footer.php") ?>
 </body>
+
 </html>

@@ -2,13 +2,14 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+if (!isset($_SESSION['admin'])) {
+    header("Location:Admin_login.php");
+    exit();
+}
+
 include("./header.php");
 include("./db_conn.php");
 
-if (!isset($_SESSION['admin'])) {
-    header("Location: Admin_login.php");
-    exit();
-}
 
 // Fetch cancer types from database
 $cancer_types = [];

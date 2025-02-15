@@ -1,15 +1,17 @@
-<?php include("./header.php");?>
+<?php include("./header.php"); ?>
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>OncoLogix</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-    </head>
-    <body class="bg-gradient-to-b from-[#E3ECF8] to-[#FFFFFF] text-gray-800 flex flex-col min-h-screen">
-    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OncoLogix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-b from-[#E3ECF8] to-[#FFFFFF] text-gray-800 flex flex-col min-h-screen">
+
     <!-- Content -->
     <div class="text-center mt-16 px-6">
         <h1 class="text-3xl font-bold text-blue-800">Contact Us</h1>
@@ -22,7 +24,7 @@
             <form action="#" method="POST">
                 <label class="block font-semibold text-gray-700">Full Name:</label>
                 <input type="text" name="name" class="w-full p-2 border border-gray-300 rounded-md mt-1 mb-4" required>
-                
+
                 <label class="block font-semibold text-gray-700">Email Address:</label>
                 <input type="email" name="email" class="w-full p-2 border border-gray-300 rounded-md mt-1 mb-4" required>
 
@@ -35,11 +37,14 @@
             </form>
         </div>
     </div>
-    <script>       // Function to toggle mobile menu
-        document.getElementById("menu-toggle").addEventListener("click", function () {
+    <!-- <script>
+        // Function to toggle mobile menu
+        document.getElementById("menu-toggle").addEventListener("click", function() {
             document.getElementById("mobile-menu").classList.toggle("hidden");
-        });</script>
+        });
+    </script> -->
 
- <?php include("./footer.php") ?>       
+    <?php include("./footer.php") ?>
 </body>
+
 </html>

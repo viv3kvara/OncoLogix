@@ -5,11 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User_panel</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const menuToggle = document.getElementById("menu-toggle");
+            const mobileMenu = document.getElementById("mobile-menu");
+
+            // Toggle menu on button click
+            menuToggle.addEventListener("click", function(event) {
+                event.stopPropagation(); // Prevents click from triggering the document event
+                mobileMenu.classList.toggle("hidden");
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener("click", function(event) {
+                if (!mobileMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+                    mobileMenu.classList.add("hidden");
+                }
+            });
+        });
+    </script>
+
 </head>
 
 <body>
     <!-- Header -->
-    <header class="flex justify-between items-center p-5 bg-white shadow-md ">
+    <header class="flex justify-between items-center p-5 bg-white shadow-md">
         <a href="./index.php">
             <h1 class="text-3xl font-bold text-blue-900 flex items-center ml-10">
                 <span class="text-black">O</span><span class="text-blue-500">L</span>
@@ -31,9 +51,9 @@
     </header>
 
     <!-- Mobile Menu Dropdown -->
-    <div id="mobile-menu" class="hidden flex flex-col items-center bg-white shadow-md md:hidden font-bold">
+    <div id="mobile-menu" class="hidden flex flex-col items-center bg-white shadow-md md:hidden font-bold w-full">
         <a href="./index.php" class="py-2 text-gray-700 hover:text-blue-700">Home</a>
-        <a href="./drop-down.php" class="py-2 text-gray-700 hover:text-blue-700">Tumor Collections</a>
+        <a href="./tumor_coll.php" class="py-2 text-gray-700 hover:text-blue-700">Tumor Collections</a>
         <a href="./aboutus.php" class="py-2 text-gray-700 hover:text-blue-700">About Us</a>
         <a href="./contactus.php" class="py-2 text-gray-700 hover:text-blue-700">Contact Us</a>
     </div>
