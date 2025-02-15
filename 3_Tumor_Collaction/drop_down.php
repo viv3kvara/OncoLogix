@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OncoLogix - Cancer Types</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        if (performance.navigation.type === 2) {
+            location.reload(); // Force refresh when navigating back
+        }
+    </script>
 </head>
 
 <body class="bg-gradient-to-b from-blue-50 to-white">
