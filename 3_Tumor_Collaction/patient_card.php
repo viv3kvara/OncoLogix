@@ -1,5 +1,4 @@
 <?php
-
 include("../1_Admin_Panel/db_conn.php");
 $patients = [];
 $cancerType = mysqli_real_escape_string($conn, $_POST['cancer_type']);
@@ -35,6 +34,10 @@ if ($result) {
     <title>OncoLogix - Patient Cards</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        header {
+            width: 100%;
+        }
+
         .card {
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             width: 100%;
@@ -57,9 +60,9 @@ if ($result) {
     </style>
 </head>
 
-<body class="bg-gradient-to-b from-blue-50 to-white flex flex-col items-center min-h-screen pt-20">
+<body class="bg-gradient-to-b from-blue-50 to-white flex flex-col items-center min-h-screen pt-0">
 
-    <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50 flex justify-between items-center p-5">
+    <!-- <header class="fixed top-0 left-0 w-full bg-white shadow-md z-50 flex justify-between items-center p-5">
         <a href="./index.php" class="text-3xl font-bold text-blue-900 flex items-center ml-10">
             <span class="text-black">O</span><span class="text-blue-500">L</span>
             <span class="ml-2 text-gray-600">OncoLogix</span>
@@ -78,9 +81,9 @@ if ($result) {
         <a href="./drop-down.php" class="py-2 text-gray-700 hover:text-blue-700">Tumor Collections</a>
         <a href="./aboutus.php" class="py-2 text-gray-700 hover:text-blue-700">About Us</a>
         <a href="./contactus.php" class="py-2 text-gray-700 hover:text-blue-700">Contact Us</a>
-    </div>
+    </div> -->
 
-    <div class="flex-grow flex flex-col justify-center items-center w-full px-4 md:px-0">
+    <div class="flex-grow flex flex-col justify-center items-center w-full px-4 md:px-0 mt-10">
         <h1 class="text-3xl font-bold text-blue-900 text-center mb-8">Patient Records</h1>
         <div class="flex flex-col space-y-6 w-full max-w-4xl">
             <?php if (!empty($patients)): { ?>

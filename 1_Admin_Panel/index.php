@@ -37,11 +37,6 @@ include("./header.php");
     </main>
 
     <script>
-        // Function to toggle mobile menu
-        document.getElementById("menu-toggle").addEventListener("click", function() {
-            document.getElementById("mobile-menu").classList.toggle("hidden");
-        });
-
         // Function to simulate fetching tumor case count from an API
         function fetchTumorCaseCount() {
             const randomTumorCaseCount = Math.floor(Math.random() * 1000000) + 10000000;

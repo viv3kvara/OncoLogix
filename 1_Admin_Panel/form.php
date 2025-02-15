@@ -86,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="max-w-5xl mx-auto p-6 rounded-lg shadow-xl bg-white/30 backdrop-blur-md border border-gray-300 mt-[20px]">
         <h2 class="text-2xl font-bold text-center text-blue-900 mb-6">Tumor Case Form</h2>
 
-        <form action="./form.php" method="POST" enctype="multipart/form-data">
+        <form id="myform" action="./form.php" method="POST" enctype="multipart/form-data">
             <!-- Case ID & Cancer Type -->
             <div class="grid grid-cols-2 gap-4 mb-4">
                 <div class="bg-gray-50/50 p-4 rounded-lg shadow-md backdrop-blur-md">
@@ -176,6 +176,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php
     include("./footer.php");
     ?>
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function() {
+            setTimeout(() => {
+                this.reset(); // Clear form fields
+            }, 1000); // Delay to allow form submission
+        });
+    </script>
 </body>
 
 </html>
