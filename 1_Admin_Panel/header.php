@@ -30,7 +30,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <nav id="menu" class="hidden md:flex md:items-center space-x-6 mr-[50px] font-bold">
             <a href="./index.php" class="text-gray-700 hover:text-blue-700">Home</a>
             <a href="./form.php" class="text-gray-700 hover:text-blue-700">Cases Details</a>
-            <a href="./drop-down.php" class="text-gray-700 hover:text-blue-700">Tumor Collections</a>
+            <a href="./tumor_coll.php" class="text-gray-700 hover:text-blue-700">Tumor Collections</a>
             <a href="./aboutus.php" class="text-gray-700 hover:text-blue-700">About Us</a>
             <a href="./contactus.php" class="text-gray-700 hover:text-blue-700">Contact Us</a>
 

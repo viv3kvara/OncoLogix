@@ -1,6 +1,6 @@
 <?php
 
-include("../Admin_Panel/db_conn.php");
+include("../1_Admin_Panel/db_conn.php");
 $patients = [];
 $cancerType = mysqli_real_escape_string($conn, $_POST['cancer_type']);
 
@@ -86,7 +86,7 @@ if ($result) {
             <?php if (!empty($patients)): { ?>
                     <?php foreach ($patients as $patient): ?>
                         <div class="bg-white shadow-md rounded-lg p-6 card flex flex-col md:flex-row items-center md:justify-between w-full md:w-auto">
-                            <img src="<?= !empty($patient['Image']) ? '../Admin_Panel/uploads/' . htmlspecialchars($patient['Image']) : './assets/img/unkonw.jpg' ?>"
+                            <img src="<?= !empty($patient['Image']) ? '../1_Admin_Panel/uploads/' . htmlspecialchars($patient['Image']) : './assets/img/unkonw.jpg' ?>"
                                 alt="Patient Image"
                                 class="w-40 h-40 rounded-lg object-cover mr-6 mb-4 md:mb-0">
                             <div class="flex-1 flex flex-col md:flex-row justify-between items-center w-full">

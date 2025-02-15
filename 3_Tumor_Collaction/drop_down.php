@@ -1,4 +1,3 @@
-<?php include("./header.php") ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +12,7 @@
     <div class="container mx-auto p-6 shadow-md rounded-lg mt-[70px] bg-gradient-to-b from-white to-blue-50 lg:w-[60vw]">
         <h2 class="text-xl font-semibold text-blue-900 mb-4">Select Cancer Type</h2>
 
-        <form action="./patient_card.php" method="POST" enctype="multipart/form-data">
+        <form action="../3_Tumor_Collaction/patient_card.php" method="POST" enctype="multipart/form-data">
             <!-- Dropdown -->
             <div class="mb-6">
                 <select id="cancerType" name="cancer_type" class="w-full p-3 border rounded-lg shadow-md text-gray-700 focus:ring focus:ring-blue-300">
