@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2025 at 08:20 AM
+-- Generation Time: Feb 15, 2025 at 05:25 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -31,6 +31,13 @@ CREATE TABLE `admin` (
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`username`, `password`) VALUES
+('Kartik', '12345');
 
 -- --------------------------------------------------------
 
@@ -66,15 +73,9 @@ CREATE TABLE `cases` (
   `d_id` int(11) DEFAULT NULL,
   `h_id` int(11) DEFAULT NULL,
   `t_id` int(11) DEFAULT NULL,
-  `cancer_type` varchar(100) NOT NULL
+  `cancer_type` varchar(100) NOT NULL,
+  `cancer_date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `cases`
---
-
-INSERT INTO `cases` (`c_id`, `p_id`, `d_id`, `h_id`, `t_id`, `cancer_type`) VALUES
-(1, 1, 1, 1, 1, 'Stomach Cancer');
 
 -- --------------------------------------------------------
 
@@ -89,13 +90,6 @@ CREATE TABLE `doctor` (
   `specialization` varchar(100) NOT NULL,
   `d_photo` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `doctor`
---
-
-INSERT INTO `doctor` (`d_id`, `d_name`, `experience`, `specialization`, `d_photo`) VALUES
-(1, 'Paresh', 12, 'fejvkvnmcw', 'DEMO.png');
 
 -- --------------------------------------------------------
 
@@ -113,13 +107,6 @@ CREATE TABLE `hospital` (
   `city` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `hospital`
---
-
-INSERT INTO `hospital` (`h_id`, `h_name`, `email`, `contactNo`, `country`, `state`, `city`) VALUES
-(1, 'Sadguru', '0', '1234561234', 'India', 'Gujarat', 'Ahmedabad');
-
 -- --------------------------------------------------------
 
 --
@@ -133,13 +120,6 @@ CREATE TABLE `patient` (
   `p_image` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `patient`
---
-
-INSERT INTO `patient` (`p_id`, `P_name`, `age`, `p_image`) VALUES
-(1, 'kartik', 20, 'bg.jpg');
-
 -- --------------------------------------------------------
 
 --
@@ -151,13 +131,6 @@ CREATE TABLE `treatment` (
   `t_given` text NOT NULL,
   `M_image` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `treatment`
---
-
-INSERT INTO `treatment` (`t_id`, `t_given`, `M_image`) VALUES
-(1, 'qwerywjkfne wuww fwriuqwiodqk weeucilwdhqwkld vqequieqiwsdj qc0rwutiowejfqw ceqeowjrejiwfj wrwejwj rqwiqw -rwuirowu o', 'fcon.jpg');
 
 --
 -- Indexes for dumped tables
@@ -223,31 +196,31 @@ ALTER TABLE `cancer`
 -- AUTO_INCREMENT for table `cases`
 --
 ALTER TABLE `cases`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `doctor`
 --
 ALTER TABLE `doctor`
-  MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `d_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `hospital`
 --
 ALTER TABLE `hospital`
-  MODIFY `h_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `h_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `treatment`
 --
 ALTER TABLE `treatment`
-  MODIFY `t_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `t_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
