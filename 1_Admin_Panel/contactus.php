@@ -32,7 +32,7 @@ include("./header.php");
         <!-- Contact Form -->
         <div class="mt-10 max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg">
             <form action="#" method="POST">
-                <label class="block font-semibold text-gray-700">Full Name:</label>
+                <label class="block font-semibold text-gray-700">Name:</label>
                 <input type="text" name="name" class="w-full p-2 border border-gray-300 rounded-md mt-1 mb-4" required>
 
                 <label class="block font-semibold text-gray-700">Email Address:</label>
