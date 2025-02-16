@@ -51,7 +51,7 @@ include("./header.php");
                 </div>
                 <div class="bg-blue-100 p-6 rounded-lg shadow-md">
                     <h4 class="text-lg font-semibold text-blue-800">Searchable</h4>
-                    <p class="text-gray-600">Searchable by (i) pathology diagnosis, (ii) key morphologic features, and (iii) specific cohorts.</p>
+                    <p class="text-gray-600">Searchable by pathology diagnosis, (ii) key morphologic features, and (iii) specific cohorts.</p>
                 </div>
             </div>
         </div>
